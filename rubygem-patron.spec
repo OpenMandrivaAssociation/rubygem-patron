@@ -2,8 +2,8 @@
 
 Summary:    Patron HTTP client
 Name:       rubygem-%{oname}
-Version:    0.4.9
-Release:    %mkrel 1
+Version:    0.4.18
+Release:    1
 Group:      Development/Ruby
 License:    MIT
 URL:        http://github.com/toland/Patron
@@ -27,29 +27,28 @@ gem install -V --local --install-dir .%{ruby_gemdir} \
                --force --rdoc %{SOURCE0}
 
 %install
-rm -rf %{buildroot}
 mkdir -p %{buildroot}%{ruby_gemdir}
 cp -a .%{ruby_gemdir}/* %{buildroot}%{ruby_gemdir}
 rm -rf %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/ext/
+rm -f %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/.autotest
+rm -f %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/.gitignore
+rm -f %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/.rspec
 
 # install the so file in sitearchdir
 mkdir -p %{buildroot}%{ruby_sitearchdir}
 mv %{buildroot}%{ruby_gemdir}/gems/%{oname}-%{version}/lib/patron/*.so %{buildroot}%{ruby_sitearchdir}
 
-%clean
-rm -rf %{buildroot}
-
 %files
 %defattr(-, root, root, -)
-%dir %{ruby_gemdir}/gems/%{oname}-%{version}/
-%{ruby_gemdir}/gems/%{oname}-%{version}/lib/
-%{ruby_gemdir}/gems/%{oname}-%{version}/spec/
-%{ruby_gemdir}/gems/%{oname}-%{version}/.require_paths
+%{ruby_gemdir}/gems/%{oname}-%{version}/*
 %doc %{ruby_gemdir}/doc/%{oname}-%{version}
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/LICENSE
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/Rakefile
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/README.txt
-%doc %{ruby_gemdir}/gems/%{oname}-%{version}/VERSION.yml
 %{ruby_gemdir}/cache/%{oname}-%{version}.gem
 %{ruby_gemdir}/specifications/%{oname}-%{version}.gemspec
 %{ruby_sitearchdir}/*.so
+
+
+%changelog
+* Thu Nov 04 2010 Rémy Clouard <shikamaru@mandriva.org> 0.4.9-1mdv2011.0
++ Revision: 593114
+- import rubygem-patron
+
