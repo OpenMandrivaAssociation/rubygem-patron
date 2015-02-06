@@ -3,7 +3,7 @@
 Summary:    Patron HTTP client
 Name:       rubygem-%{oname}
 Version:    0.4.18
-Release:    1
+Release:    2
 Group:      Development/Ruby
 License:    MIT
 URL:        http://github.com/toland/Patron
