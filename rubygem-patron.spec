@@ -6,7 +6,7 @@ Version:    0.4.18
 Release:    2
 Group:      Development/Ruby
 License:    MIT
-URL:        http://github.com/toland/Patron
+URL:        https://github.com/toland/Patron
 Source0:    http://rubygems.org/gems/%{oname}-%{version}.gem
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires:   rubygems
